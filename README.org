@@ -1,0 +1,32 @@
+#+TITLE:Crinkly Friend's Emacs modifications
+#+AUTHOR:CrinklyFriend
+#+EMAIL:thingywhat@gmail.com
+:SETTINGS:
+#+STARTUP: hidestars inlineimages
+#+TOC: headlines 1
+:END:
+
+This is a couple of updates to [[https://github.com/Archenoth/dotemacs][my main dotemacs repo]], mostly for visual updates that assume you have compiled Emacs with [[https://github.com/wachikun/emacs_bgex][Emacs bgex]].
+
+#+ATTR_LATEX: :width 1000
+#+CAPTION:Installed with AyaseHex.xpm in the background
+[[./Crinkly-config.png]]
+
+To do this, I recommend:
+
+1) Cloning [[https://github.com/emacs-mirror/emacs][this emacs mirror]]
+2) Checking out the latest release tag that has a patch in the [[https://github.com/wachikun/emacs_bgex][Emacs bgex]] repo
+3) Downloading said patch and applying it with =patch -p1 < patch-bgex_<The release>=
+4) Compiling emacs and =sudo make install=-ing it
+5) Following the instructions on [[https://github.com/Archenoth/dotemacs][my main config]]
+6) Clone this repo into =.emacs.d= with =git clone https://github.com/Archenoth/dotemacs.git ~/.emacs.d/Crinkly-config=
+7) Put [[https://raw.githubusercontent.com/wachikun/emacs_bgex/master/bgex.el][bgex.el]] into the same folder as this file
+8) Add the following code block to your =.emacs= (You can tangle it too if you're cool with it being overwritten)
+
+#+BEGIN_SRC elisp :tangle ~/.emacs :padline no
+  (require 'ob-tangle)
+  (org-babel-load-file "~/.emacs.d/dotemacs/Archenoth-config.org")
+  (org-babel-load-file "~/.emacs.d/Crinkly-config/Crinkly-config.org")
+#+END_SRC
+
+Included with this repo is a AyaseHex.xpm file made for 1366x768 screens, and a AyaseHex.xcf file to let you make bigger ones! (Up to 1080p)

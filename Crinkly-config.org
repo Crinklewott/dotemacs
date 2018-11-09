@@ -1,0 +1,31 @@
+#+TITLE:Crinkly Config
+#+AUTHOR:CrinklyFriend
+#+EMAIL:thingywhat@gmail.com
+:SETTINGS:
+#+STARTUP: hidestars
+#+OPTIONS: tags:not-in-toc todo:nil toc:nil
+#+FILETAGS: Config
+#+PROPERTY: header-args:emacs-lisp :tangle yes
+#+DRAWERS: SETTINGS
+#+LATEX_HEADER: \usepackage{parskip}
+#+TOC: headlines 3
+#+LATEX: \pagebreak
+:END:
+
+Here are the config tweaks I make to make my Emacs a little cuter!
+
+There isn't much here right now, but maybe there will be in the future.
+
+* Background image config
+:PROPERTIES:
+:header-args:emacs-lisp: :tangle (when (fboundp 'bgexid-create) "yes")
+:END:
+This section is all about setting up a cute background image, but will only tangle if you compiled Emacs with bgex successfully.
+
+This just loads the .el file necessary to open the background image, and does so--but only when we can actually display images:
+#+BEGIN_SRC emacs-lisp
+  ;; Background image setup!
+  (when (display-images-p)
+    (load-file "~/.emacs.d/Crinkly-config/bgex.el")
+    (bgex-set-image-default "~/.emacs.d/Crinkly-config/AyaseHex.xpm"))
+#+END_SRC
